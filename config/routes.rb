@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :businesses, only: [:index, :show]
   resources :users, only: [:index, :show, :create]
 
   # user login/auth
