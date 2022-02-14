@@ -9,5 +9,9 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   post '/signup', to: 'users#create'
   get '/profile', to: 'users#profile'
+
+  get '/favorite', to: 'businesses#favorite'
+  patch '/favorite', to: 'businesses#favorite_update'
+  delete '/favorite', to: 'businesses#favorite_delete'
   
 end
