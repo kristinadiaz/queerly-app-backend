@@ -8,4 +8,7 @@ class User < ApplicationRecord
     validates :email, uniqueness: true
 
     validates :password, length: 8..20
+
+    has_many :reviews 
+    has_many :busineses, through: :reviews
 end
