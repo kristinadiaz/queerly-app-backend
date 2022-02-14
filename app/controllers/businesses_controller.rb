@@ -9,18 +9,18 @@ class BusinessesController < ApplicationController
         render json: find_business
     end
 
-    # def favorite 
-    #  # only businesses that are true on frontend
-    #     Business.where(added: true).to_json
-    # end
+    def favorite 
+     # only businesses that are true on frontend
+        Business.where(added: true).to_json
+    end
 
-    # def favorite_update
-    #     Business.where(id: params[:id]).update_all(added: true).to_json
-    # end
+    def favorite_update
+        Business.where(id: params[:id]).update_all(added: true).to_json
+    end
 
-    # def favorite_delete 
-    #     find_business.destroy.to_json
-    # end
+    def favorite_delete 
+        find_business.destroy.to_json
+    end
 
     private
 
