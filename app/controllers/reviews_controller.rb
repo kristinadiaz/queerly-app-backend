@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_error
 
     def index 
-        render json: Review.all
+        render json: Review.all, include: :busineses
     end
 
     def show
@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
     end
 
     def create 
+        puts 'i was created'
         review = Review.create!(review_params)
         render json: review, status: :created
     end
@@ -33,7 +34,7 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-        params.permit(:comment, :rating, user: :user_id, business: :business_id)
+        params.require(:review).permit(:comment, :rating, :user_id, :business_id)
     end
 
     def render_not_found

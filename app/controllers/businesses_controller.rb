@@ -6,7 +6,7 @@ class BusinessesController < ApplicationController
     end
 
     def show
-        render json: find_business
+        render json: find_business, include: :review
     end
 
     def favorite 
