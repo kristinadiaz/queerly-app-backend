@@ -7,6 +7,6 @@ class User < ApplicationRecord
 
     validates :password, length: 8..20
 
-    has_many :reviews 
-    has_many :busineses, through: :reviews
+    has_many :reviews, dependent: :destroy 
+    has_many :businesses
 end
