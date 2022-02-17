@@ -1,5 +1,5 @@
 class Business < ApplicationRecord
-    has_many :reviews, dependent: :destroy
-    has_many :users, through: :reviews 
+    has_many :users
+    has_many :users, through: :businesses
     belongs_to :favorite, optional: true 
 end
